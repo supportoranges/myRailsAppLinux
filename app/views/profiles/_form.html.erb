@@ -1,0 +1,73 @@
+<%= form_with(model: profile, local: true) do |form| %>
+  <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :company %>
+    <%= form.text_field :company, id: :profile_company %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address1 %>
+    <%= form.text_field :address1, id: :profile_address1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address2 %>
+    <%= form.text_field :address2, id: :profile_address2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pobox %>
+    <%= form.text_field :pobox, id: :profile_pobox %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :profile_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.collection_select(:state, State.select(:state_name, :state_code),
+                               :state_code, :state_name)  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip %>
+    <%= form.text_field :zip, id: :profile_zip %>
+  </div>
+
+  <div class="field">
+  <%= form.label :country%>
+    <%= form.country_select :country, priority_countries: ["US"], include_blank: false %>
+  </div>
+
+  <div class="field">
+    <%= form.label :website %>
+    <%= form.text_field :website, id: :profile_website %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status, id: :profile_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :referredby %>
+    <%= form.text_field :referredby, id: :profile_referredby %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+<% if user_signed_in? %>
+  <h1>Customer Database</h1>
+  <br>
+  <br>
+  <br>
+  <%= form_tag(profiles_path, method: :get) do %>
+    <%= label_tag(:q, "Company:") %>
+    <%= text_field_tag :company, nil, placeholder: 'Company name' %>
+    <%= text_field_tag  :state, nil, placeholder: 'State' %>
+    <%= submit_tag("Search") %>
+    <br>
+    <br>
+    <br>
+    <li >
+      <%= link_to 'Back', root_path %>
+    </li>
+
+  <% end %>
+<% else %>
+  <%= link_to 'Sign Up', new_user_registration_path %></br>
+  <%= link_to 'Login', new_user_session_path %>
+
+<% end %>

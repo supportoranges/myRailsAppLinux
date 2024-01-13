@@ -1,0 +1,47 @@
+<h1>Contacts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Job Title</th>
+      <th>Email</th>
+      <th>Company</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @indis.each do |indi| %>
+    <% s = indi.firstname.to_s + ' ' + indi.middle.to_s + ' ' + indi.lastname.to_s + ' ' + indi.contact_suffix.to_s %>
+    <tr>
+        <td><%= s %></td>
+        <td><%= %></td>
+        <td><%= %></td>
+        <td><%= %></td>
+        <td><%= indi.jobtitle %></td>
+        <td><%= indi.contact_email %></td>
+        <td><%= indi.profile.company %></td>
+
+        <td><%= link_to 'Show', indi %></td>
+        <td><%= link_to 'Edit', edit_indi_path(indi) %></td>
+        <td><%= link_to 'Delete',  { controller: "indis", action: "destroy", id: indi.id },
+                          method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <td><%= link_to 'New Contact', new_profile_indi_path(:profile_id => indi.profile.id) %></td>
+      </tr>
+     <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<br>
+<br>
+<br>
+<li >
+  <%= link_to 'Back', root_path %>
+</li>

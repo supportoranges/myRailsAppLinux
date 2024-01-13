@@ -1,0 +1,2 @@
+class Resin < ApplicationRecord
+end

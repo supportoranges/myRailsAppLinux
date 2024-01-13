@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Resin:</strong>
+  <%= @product.internal_code %>
+</p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @product.detail %>
+</p>
+
+<p>
+  <strong>Person in Charge:</strong>
+  <%= @product.pic %>
+</p>
+<% puts(params[:profile_id])%>
+<%= link_to 'Edit', edit_profile_product_path(@product, :profile_id => params[:profile_id]) %> |
+<%= link_to "Back",   {controller: "products", action: "index"} %>

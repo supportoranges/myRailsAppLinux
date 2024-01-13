@@ -1,0 +1,82 @@
+<h1>New Contact</h1>
+
+<% if $horrible_global == true
+     puts("horrible is true so do companies") %>
+  <%= link_to "Back",   :back %>
+<% else %>
+  <%= link_to "Back",   :back %>
+<% end %>
+
+<P></P>
+<%= form_for(@indi, url: {controller: "indis", action: "create"}, method: "post") do |form| %>
+
+  <div class="field">
+    <%= form.hidden_field :profile_id, {  :value => params[:profile_id]} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :greet %>
+    <%= form.text_field :greet, id: :indi_greet %>
+  </div>
+
+  <div class="field">
+    <%= form.label :firstname %>
+    <%= form.text_field :firstname, id: :indi_firstname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :middle %>
+    <%= form.text_field :middle, id: :indi_middle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lastname %>
+    <%= form.text_field :lastname, id: :indi_lastname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :suffix %>
+    <%= form.text_field :contact_suffix, id: :indi_contact_suffix %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :contact_email, id: :indi_contact_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :jobtitle %>
+    <%= form.text_field :jobtitle, id: :indi_jobtitle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :department %>
+    <%= form.text_field :department, id: :indi_department %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Work Phone" %>
+    <%= form.text_field :workphone, id: :indi_workphone %>
+  </div>
+  <div class="field">
+    <%= form.label :extension %>
+    <%= form.text_field :extension, id: :indi_extension %>
+  </div>
+  <div class="field">
+    <%= form.label :mobile %>
+    <%= form.text_field :mobilephone, id: :indi_mobilephone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remarks %>
+    <%= form.text_area :remarks, id: :indi_remarks, size: "80x7"%>
+  </div>
+
+
+  <P></P>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+

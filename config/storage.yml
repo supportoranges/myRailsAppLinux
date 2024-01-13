@@ -1,0 +1,14 @@
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+
+amazon:
+  service: S3
+  access_key_id: AKIAIZ2IL5SGTK2QCJ7Q
+  secret_access_key: 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
+  region: us-west-2
+  bucket: npolymer-bucket-by-gary

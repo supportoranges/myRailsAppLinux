@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+<h1>Showing Company</h1>
+<p>
+  <strong>Company:</strong>
+  <%= @profile.company %>
+</p>
+
+<p>
+  <strong>Address1:</strong>
+  <%= @profile.address1 %>
+</p>
+
+<p>
+  <strong>Address2:</strong>
+  <%= @profile.address2 %>
+</p>
+
+<p>
+  <strong>PO Box:</strong>
+  <%= @profile.pobox %>
+</p>
+
+
+<p>
+  <strong>City:</strong>
+  <%= @profile.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @profile.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @profile.zip %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @profile.country %>
+</p>
+
+
+<p>
+  <strong>Website:</strong>
+  <%= @profile.website %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @profile.status %>
+</p>
+
+<p>
+  <strong>Referredby:</strong>
+  <%= @profile.referredby %>
+</p>
+
+<%= link_to "Back",   {controller: "profiles", action: "index", :company => $last_company_search, :state=> $last_state_search} %>

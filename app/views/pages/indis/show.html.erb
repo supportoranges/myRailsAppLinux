@@ -1,0 +1,74 @@
+<h1>Showing Contact</h1>
+
+<p>
+  <strong>Greet:</strong>
+  <%= @indi.greet %>
+</p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @indi.firstname %>
+</p>
+
+<p>
+  <strong>Middle:</strong>
+  <%= @indi.middle %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @indi.lastname %>
+</p>
+
+<p>
+  <strong>Suffix:</strong>
+  <%= @indi.contact_suffix %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @indi.contact_email %>
+</p>
+
+<p>
+  <strong>Jobtitle:</strong>
+  <%= @indi.jobtitle %>
+</p>
+
+<p>
+  <strong>Department:</strong>
+  <%= @indi.department %>
+</p>
+
+<p>
+  <strong>Work Phone:</strong>
+  <%= @indi.workphone %>
+</p>
+<p>
+  <strong>Extension:</strong>
+  <%= @indi.extension %>
+</p>
+<p>
+  <strong>Mobile:</strong>
+  <%= @indi.mobilephone %>
+</p>
+<p>
+  <strong>Remarks:</strong>
+  <%= @indi.remarks %>
+</p>
+<p>
+
+  <% @indi.files.each do |file| %>
+    <%= link_to file.filename, file %>
+    <%# somehow it passes the id of the right person, it looks like we only pass file_id doesn't it but it knows which person/contact/indi %>
+    <%= link_to 'Delete', { controller: "indis", action: "destroy", file_id: file.id }, method: :delete, data: { confirm: "Are you sure?" }, style: 'color:#FF0000' %>
+<% end %>
+
+</p>
+
+<% if $horrible_global == true %>
+     <%= link_to "Back",   {controller: "profiles", action: "index", :company => $last_company_search, :state=> $last_state_search} %>
+  <% else %>
+     <%= link_to "Back",   {controller: "indis", action: "index", :lastname => $last, :firstname => $first}  %>
+<% end %>
+
